@@ -130,7 +130,7 @@ h2 {
   }
 
   .hole {
-    flex: 1 0 45%; /* 2 columns on mobile */
+    flex: 1 0 45%; /* 2 columns on mobile (45% width each) */
     max-width: 45%; /* Maximum width for mobile */
   }
 
@@ -146,8 +146,8 @@ h2 {
 
 @media (max-width: 480px) {
   .hole {
-    flex: 1 0 100%; /* 1 column on very small screens */
-    max-width: 100%; /* Full width for very small screens */
+    flex: 1 0 45%; /* Keep 2 columns on very small screens */
+    max-width: 45%; /* Maximum width for very small screens */
   }
 
   .mole {
