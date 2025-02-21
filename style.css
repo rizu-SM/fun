@@ -21,6 +21,11 @@ body {
   font-family: "Nunito", sans-serif;
   background: #fff9e2;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 h1 {
@@ -47,34 +52,22 @@ h2 {
 }
 
 .game {
-  width: 600px;
-  height: 400px;
-  display: -webkit-box;
-  display: -webkit-flex;
+  width: 90%; /* Responsive width */
+  max-width: 600px; /* Maximum width for larger screens */
+  height: auto; /* Auto height to fit content */
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px; /* Space between holes */
   margin: 0 auto;
 }
 
-@media (max-width: 700px) {
-    .game{
-        width: 500px;
-        height: 300px;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-
-    }
-    .mole{
-        background-size: 40%;
-        height: 50%;
-    }
-}
-
 .hole {
-  flex: 1 0 33.33%;
-  overflow: hidden;
+  flex: 1 0 30%; /* Flexible width for holes */
+  max-width: 30%; /* Maximum width for holes */
+  aspect-ratio: 1; /* Make holes square */
   position: relative;
+  overflow: hidden;
 }
 
 .hole:after {
@@ -91,8 +84,7 @@ h2 {
 }
 
 .mole {
-  background: url("./sami-gg (1).png")
-    bottom center no-repeat;
+  background: url("./sami-gg (1).png") bottom center no-repeat;
   background-size: 80%;
   position: absolute;
   top: 100%;
@@ -120,4 +112,45 @@ h2 {
 
 #start:hover {
   opacity: 0.8;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 700px) {
+  h1 {
+    font-size: 3rem; /* Smaller font size for mobile */
+  }
+
+  h2 {
+    font-size: 2rem; /* Smaller font size for mobile */
+  }
+
+  .game {
+    width: 100%; /* Full width for mobile */
+    gap: 5px; /* Smaller gap between holes */
+  }
+
+  .hole {
+    flex: 1 0 45%; /* 2 columns on mobile */
+    max-width: 45%; /* Maximum width for mobile */
+  }
+
+  .mole {
+    background-size: 60%; /* Adjust mole size for mobile */
+  }
+
+  #start {
+    font-size: 1.5rem; /* Smaller button text for mobile */
+    padding: 0.8rem 1.5rem; /* Adjust button padding */
+  }
+}
+
+@media (max-width: 480px) {
+  .hole {
+    flex: 1 0 100%; /* 1 column on very small screens */
+    max-width: 100%; /* Full width for very small screens */
+  }
+
+  .mole {
+    background-size: 50%; /* Further adjust mole size */
+  }
 }
